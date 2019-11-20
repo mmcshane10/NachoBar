@@ -15,10 +15,15 @@ class Bar extends React.Component {
       this.updateHungerLevel(),
     1000
     );
+    this.kegLevelDepricator= setInterval(() =>
+      this.updateKegLevel(),
+      2000
+    );
   }
 
   componentWillUnmount(){
     clearInterval(this.hungerLevelDepricator);
+    clearInterval(this.kegLevelDepricator);
   }
 
   updateHungerLevel() {
@@ -27,10 +32,20 @@ class Bar extends React.Component {
     this.setState({ hungerLevel: newHunger });
   }
 
+  updateKegLevel(){
+      let newKeg = this.state.kegLevel;
+      newKeg--;
+      this.setState({kegLevel: newKeg });
+  }
+
   render() {
     return (
       <div>
+          <p>Hunger Level</p>
         <h1>{this.state.hungerLevel}</h1>
+        <p>Keg Level </p>
+        <h1> {this.state.kegLevel}</h1>
+        
       </div>
     );
   }
