@@ -59,7 +59,7 @@ updateKegLevel() {
 
   tapNewKeg() {
       let tapKeg = this.state.kegLevel;
-      newKeg=100;
+      tapKeg=100;
       this.setState({ kegLevel: tapKeg });
   }
   updateRowdinessLevel() {
@@ -114,7 +114,7 @@ updateKegLevel() {
         <div style={divStyle}>
           <h5>Keg Level </h5>
           <h1> {this.state.kegLevel}</h1>
-        <button className="waves-effect waves-light btn-small" onClick={tapKeg()}>Tap New Keg</button>
+        <button className="waves-effect waves-light btn-small" onClick={() => this.tapNewKeg()}>Tap A Keg</button>
         </div>
         <div style={divStyle}>
           <h5>Rowdiness</h5>
