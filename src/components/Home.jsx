@@ -8,12 +8,18 @@ function Home() {
     height: '800',
     alignItems: 'center',
     flexDirection: 'column',
+    fontFamily: 'Tomorrow, sans-serif',
+    fontWeight: 'bold'
+
   };
 
   var buttonStyle = {
     marginTop: '2%',
     backgroundColor: 'blue',
-    borderRadius: '10px'
+    borderRadius: '10px',
+    fontFamily: 'Tomorrow, sans-serif',
+    fontWeight: 'bold'
+
   };
   return(
     <div style={rulesStyle}> 

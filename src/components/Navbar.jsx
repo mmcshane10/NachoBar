@@ -6,7 +6,10 @@ function Navbar() {
   var navStyle = {
     paddingLeft: '2%',
     paddingRight: '2%',
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
+    fontFamily: 'Tomorrow, sans-serif',
+    fontWeight: 'bold'
+
   };
 
   return (

@@ -29,30 +29,38 @@ class Bar extends React.Component {
     );
   }
 
-  //   endGame() {
-  //     this.setState({gameOver: true});
-  //   }
-
   componentWillUnmount() {
     clearInterval(this.hungerLevelDepricator);
     clearInterval(this.kegLevelDepricator);
     clearInterval(this.rowdinessLevelIncrementor);
-  }
+}
 
-  updateHungerLevel() {
+updateHungerLevel() {
     let newHunger = this.state.hungerLevel;
     if (newHunger > 0) {
-      newHunger--;
+        newHunger--;
     }
     this.setState({ hungerLevel: newHunger });
-  }
+}
 
-  updateKegLevel() {
+feedBar() {
+  let feed = this.state.hungerLevel;
+  feed=100;
+  this.setState({ hungerLevel: feed });
+}
+
+updateKegLevel() {
     let newKeg = this.state.kegLevel;
     if (newKeg > 0) {
       newKeg--;
     }
     this.setState({ kegLevel: newKeg });
+  }
+
+  tapNewKeg() {
+      let tapKeg = this.state.kegLevel;
+      newKeg=100;
+      this.setState({ kegLevel: tapKeg });
   }
   updateRowdinessLevel() {
     let newRowdy = this.state.rowdinessLevel;
@@ -78,7 +86,10 @@ class Bar extends React.Component {
     var scoreStyle = {
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      fontFamily: 'Tomorrow, sans-serif',
+      fontWeight: 'bold'
+
     };
 
     var divStyle = {
@@ -86,22 +97,27 @@ class Bar extends React.Component {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: '5%'
+      margin: '5%',
+      fontFamily: 'Tomorrow, sans-serif',
+      fontWeight: 'bold'
+
     };
 
     return (
       <div style={scoreStyle}>
         {this.state.gameOver ? <Redirect to='/Gameover' /> : ''}
         <div style={divStyle}>
-          <p>Hunger Level</p>
+          <h5>Hunger Level</h5>
           <h1>{this.state.hungerLevel}</h1>
+        <button className="waves-effect waves-light btn-small" onClick={() => this.feedBar()}>Feed em</button>
         </div>
         <div style={divStyle}>
-          <p>Keg Level </p>
+          <h5>Keg Level </h5>
           <h1> {this.state.kegLevel}</h1>
+        <button className="waves-effect waves-light btn-small" onClick={tapKeg()}>Tap New Keg</button>
         </div>
         <div style={divStyle}>
-          <p>Rowdiness</p>
+          <h5>Rowdiness</h5>
           <h1>{this.state.rowdinessLevel}</h1>
         </div>
       </div>

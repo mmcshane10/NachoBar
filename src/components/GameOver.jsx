@@ -21,6 +21,7 @@ function GameOver() {
 
   var h1Style = {
     position: 'relative',
+    fontFamily: 'Tomorrow, sans-serif',
     textShadow: '4px 4px 8px black',
   };
 
