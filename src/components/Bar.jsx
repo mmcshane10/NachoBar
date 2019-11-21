@@ -17,15 +17,15 @@ class Bar extends React.Component {
   componentDidMount() {
     this.hungerLevelDepricator = setInterval(() =>
       this.updateHungerLevel(),
-    500
+    300
     );
     this.kegLevelDepricator = setInterval(() =>
       this.updateKegLevel(),
-    250
+    200
     );
     this.rowdinessLevelIncrementor = setInterval(() =>
       this.updateRowdinessLevel(),
-    500
+    400
     );
   }
 
@@ -60,7 +60,12 @@ class Bar extends React.Component {
   tapNewKeg() {
     let tapKeg = this.state.kegLevel;
     let lowerRowdiness = this.state.rowdinessLevel;
-    lowerRowdiness -= 20;
+    if (lowerRowdiness > 20) {
+        lowerRowdiness -= 20;
+    }
+    else {
+        lowerRowdiness = 0;
+    }
     tapKeg=100;
     this.setState({ kegLevel: tapKeg, rowdinessLevel: lowerRowdiness});
   }
