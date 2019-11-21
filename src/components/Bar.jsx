@@ -33,23 +33,23 @@ class Bar extends React.Component {
     clearInterval(this.hungerLevelDepricator);
     clearInterval(this.kegLevelDepricator);
     clearInterval(this.rowdinessLevelIncrementor);
-}
+  }
 
-updateHungerLevel() {
+  updateHungerLevel() {
     let newHunger = this.state.hungerLevel;
     if (newHunger > 0) {
-        newHunger--;
+      newHunger--;
     }
     this.setState({ hungerLevel: newHunger });
-}
+  }
 
-feedBar() {
-  let feed = this.state.hungerLevel;
-  feed=100;
-  this.setState({ hungerLevel: feed });
-}
+  feedBar() {
+    let feed = this.state.hungerLevel;
+    feed=100;
+    this.setState({ hungerLevel: feed });
+  }
 
-updateKegLevel() {
+  updateKegLevel() {
     let newKeg = this.state.kegLevel;
     if (newKeg > 0) {
       newKeg--;
@@ -58,12 +58,13 @@ updateKegLevel() {
   }
 
   tapNewKeg() {
-      let tapKeg = this.state.kegLevel;
-      let lowerRowdiness = this.state.rowdinessLevel;
-      lowerRowdiness -= 20;
-      tapKeg=100;
-      this.setState({ kegLevel: tapKeg, rowdinessLevel: lowerRowdiness});
+    let tapKeg = this.state.kegLevel;
+    let lowerRowdiness = this.state.rowdinessLevel;
+    lowerRowdiness -= 20;
+    tapKeg=100;
+    this.setState({ kegLevel: tapKeg, rowdinessLevel: lowerRowdiness});
   }
+  
   updateRowdinessLevel() {
     let newRowdy = this.state.rowdinessLevel;
     if (this.state.kegLevel == 0 || this.state.hungerLevel == 0) {
@@ -78,10 +79,8 @@ updateKegLevel() {
     this.setState({ rowdinessLevel: newRowdy });
   }
 
-
-
   render() {
-    if (this.state.hungerLevel < 1 || this.state.rowdinessLevel > 99) {
+    if (this.state.rowdinessLevel > 99) {
       this.setState({ gameOver: true });
     }
 
@@ -91,7 +90,6 @@ updateKegLevel() {
       justifyContent: 'center',
       fontFamily: 'Tomorrow, sans-serif',
       fontWeight: 'bold'
-
     };
 
     var divStyle = {
@@ -102,7 +100,6 @@ updateKegLevel() {
       margin: '5%',
       fontFamily: 'Tomorrow, sans-serif',
       fontWeight: 'bold'
-
     };
 
     return (
@@ -111,12 +108,12 @@ updateKegLevel() {
         <div style={divStyle}>
           <h5>Hunger Level</h5>
           <h1>{this.state.hungerLevel}</h1>
-        <button className="waves-effect waves-light btn-small" onClick={() => this.feedBar()}>Feed em</button>
+          <button className="waves-effect waves-light btn-small" onClick={() => this.feedBar()}>Feed em</button>
         </div>
         <div style={divStyle}>
           <h5>Keg Level </h5>
           <h1> {this.state.kegLevel}</h1>
-        <button className="waves-effect waves-light btn-small" onClick={() => this.tapNewKeg()}>Tap A Keg</button>
+          <button className="waves-effect waves-light btn-small" onClick={() => this.tapNewKeg()}>Tap A Keg</button>
         </div>
         <div style={divStyle}>
           <h5>Rowdiness</h5>
