@@ -59,8 +59,10 @@ updateKegLevel() {
 
   tapNewKeg() {
       let tapKeg = this.state.kegLevel;
+      let lowerRowdiness = this.state.rowdinessLevel;
+      lowerRowdiness -= 20;
       tapKeg=100;
-      this.setState({ kegLevel: tapKeg });
+      this.setState({ kegLevel: tapKeg, rowdinessLevel: lowerRowdiness});
   }
   updateRowdinessLevel() {
     let newRowdy = this.state.rowdinessLevel;
